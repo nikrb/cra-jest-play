@@ -2,7 +2,7 @@
 
 exports[`Link change the class when hovered 1`] = `
 <a
-  className="normal"
+  className="normal_1tsdo2i"
   href="https://hissues.herokuapp.com"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
@@ -13,7 +13,7 @@ exports[`Link change the class when hovered 1`] = `
 
 exports[`Link change the class when hovered 2`] = `
 <a
-  className="hovered"
+  className="hovered_137u7ef"
   href="https://hissues.herokuapp.com"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
@@ -24,7 +24,7 @@ exports[`Link change the class when hovered 2`] = `
 
 exports[`Link change the class when hovered 3`] = `
 <a
-  className="normal"
+  className="normal_1tsdo2i"
   href="https://hissues.herokuapp.com"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
