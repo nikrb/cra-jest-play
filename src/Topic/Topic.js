@@ -10,8 +10,8 @@ export default class Topic extends React.Component {
     getTopics().then(topics => this.setState({ topics }))
   };
   render = () => {
-    const topics = this.state.topics.map(topic => (
-      <li>{topic.name}</li>
+    const topics = this.state.topics.map((topic, ndx) => (
+      <li key={ndx}>{topic.name}</li>
     ));
     return (
       <div>
