@@ -11,7 +11,7 @@ it('should call topics api', () => {
   return getTopics()
     .then(() => {
       expect(fetchSpy).toHaveBeenCalledWith('/api/v1/topics');
-    })
+    });
 });
 
 it('should return topic list', () => {
