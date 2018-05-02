@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 class App extends Component {
+  state = {
+    topics: [],
+  };
+  componentDidMount() {
+    this.loadTopics().then(topics => this.setState({topics}));
+  }
+  async loadTopics() {
+    fetch('/api/v1/topics')
+      .then(res => res.json());
+  }
   render() {
+    const { topics } = this.state;
+    const lis = topics.map(t => <li key={t._id}>{t.name}</li>)
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <ul>{lis}</ul>
       </div>
     );
   }
