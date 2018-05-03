@@ -7,7 +7,7 @@ class App extends Component {
   componentDidMount() {
     this.loadTopics().then(topics => this.setState({topics}));
   }
-  async loadTopics() {
+  loadTopics() {
     fetch('/api/v1/topics')
       .then(res => res.json());
   }
