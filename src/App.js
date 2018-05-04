@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
 
+import actions from './actions';
+
 class App extends Component {
   state = {
+    success: false,
     topics: [],
     subTopics: [],
+    article: { _id: '1', title: 'test title' }
   };
   componentDidMount() {
     this.loadData().then(results => {
-      console.log('load data:', results);
       const [topics, subTopics, ...rest] = results;
       this.setState({ topics, subTopics });
     });
+    window.addEventListener('resize', this.someHandler);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.someHandler);
+  }
+  someHandler() {
+
   }
   loadData() {
     const promises = [];
@@ -29,6 +39,12 @@ class App extends Component {
     );
     promises.push(p);
     return Promise.all(promises);
+  }
+  handleSave() {
+    actions.save()
+      .then(json => {
+        this.setState({ success: json.success});
+      });
   }
   render() {
     const { topics, subTopics } = this.state;
