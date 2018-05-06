@@ -28,8 +28,10 @@ it('should add and remove resize event handler', () => {
     .mockImplementation(() => {});
   const wrapper = shallow(<App />);
   expect(adder).toHaveBeenCalled();
-  wrapper.unmount();
-  expect(remover).toHaveBeenCalled();
+  return Promise.resolve().then(() => {
+    wrapper.unmount();
+    expect(remover).toHaveBeenCalled();
+  });
 });
 
 it('should save', () => {
